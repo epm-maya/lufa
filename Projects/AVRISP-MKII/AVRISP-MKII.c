@@ -36,7 +36,7 @@
 
 #include "AVRISP-MKII.h"
 
-#if (BOARD != BOARD_NONE)
+#if (BOARD != BOARD_NONE) && !defined(HOST_TYPE)
   /* Some board hardware definitions (e.g. the Arduino Micro) have their LEDs defined on the same pins
      as the ISP, PDI or TPI interfaces (see the accompanying project documentation). If a board other
      than NONE is selected (to enable the LED driver with the programmer) you should double-check that

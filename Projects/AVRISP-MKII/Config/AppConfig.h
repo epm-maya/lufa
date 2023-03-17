@@ -65,4 +65,28 @@
 
 //	#define FIRMWARE_VERSION_MINOR     0x11
 
+#include "HostTypes.h"
+
+#ifdef HOST_TYPE
+
+#if HOST_TYPE == ITSY32U4
+		#undef  AUX_LINE_PORT
+		#undef  AUX_LINE_PIN
+		#undef  AUX_LINE_DDR
+		#undef  AUX_LINE_MASK
+		// A5 : PF0
+		#define AUX_LINE_PORT          PORTF
+		#define AUX_LINE_PIN           PINF
+		#define AUX_LINE_DDR           DDRF
+		#define AUX_LINE_MASK          (1 << 0)
+#endif
+
+#if HOST_TYPE == PROMICRO
+		#undef  AUX_LINE_MASK
+		// D10 : PB6
+		#define AUX_LINE_MASK          (1 << 6)
+#endif
+
+#endif
+
 #endif
